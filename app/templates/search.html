@@ -1,0 +1,55 @@
+<!-- templates/main1.html -->
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylemain1.css') }}" />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <title>Main</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>Fictionify</header>
+            <div class="flex_mv">
+                <aside>
+                    <form>
+                        <div class="LogoutPanel">
+                            <img src="{{ url_for('static', filename='user-solid-72.png') }}" class="Icon1">
+                            <p class="Name">{{ current_user.username }}</p>  <!-- Отображение имени пользователя -->
+                            <a href="{{ url_for('logout') }}">  <!-- Ссылка на выход из системы -->
+                                <img src="{{ url_for('static', filename='log-out-regular-72.png') }}" class="Icon2">
+                            </a>
+                        </div>
+                    </form>
+                    <nav class="Navigation">
+                        <div class="Navigation2">
+                            <a href="{{ url_for('liked_movies') }}"> <!-- ссылка на html liked_movies поменять тут-->
+                                <div class="Heart"><i class='bx bxs-heart bx-lg' ></i></div>
+                            </a>
+                            <a href="{{ url_for('search') }}">
+                                <div class="Search selected-option"><i class='bx bx-search bx-lg'></i></div>
+                            </a>
+                            <div class="Message"><i class='bx bxs-conversation bx-lg'></i></div>
+                            <a href="{{ url_for('main1') }}"><!-- ссылка на main1.html поменять тут-->
+                                <div class="Movie"><i class='bx bxs-film bx-lg'></i></div>
+                            </a>
+                        </div>
+                    </nav>
+                    <div class="content">
+                        <div class="input-container">
+                            <input class="search-c" type="text" id="search-input"/>
+                            <button id="search-button" class="icon-button">
+                                <i class="bx bx-search bx-md search-c"></i>
+                            </button>
+                        </div>
+                        <ul class="mv_li2">
+                        </ul>
+                    </div>
+                </aside>
+                <div class="selected_movie">
+                </div>
+            </div>
+        </div>
+    <script src="../static/search.js"></script>
+    </body>
+</html>
